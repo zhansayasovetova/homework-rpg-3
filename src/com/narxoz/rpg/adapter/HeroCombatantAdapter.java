@@ -4,9 +4,13 @@ import com.narxoz.rpg.battle.Combatant;
 import com.narxoz.rpg.hero.Hero;
 
 public class HeroCombatantAdapter implements Combatant {
+
     private final Hero hero;
 
     public HeroCombatantAdapter(Hero hero) {
+        if (hero == null) {
+            throw new IllegalArgumentException("Hero cannot be null");
+        }
         this.hero = hero;
     }
 
@@ -17,7 +21,6 @@ public class HeroCombatantAdapter implements Combatant {
 
     @Override
     public int getAttackPower() {
-        // TODO: translate hero power to combat attack
         return hero.getPower();
     }
 
